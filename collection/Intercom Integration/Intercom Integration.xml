@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<Collection name="Intercom Integration" guid="{A7DE8730-CE32-4C5F-BB60-7A9DF934F60E}" system="No" updatable="Yes" blockNavigatorNode="No">
+	<HelpLink></HelpLink>
+	<Help></Help>
+	<Addon name="intercom Simple Javascript" guid="{95130089-9F10-40CE-8AE4-87DB4DFE866B}" type="Add-on">
+		<Copy></Copy>
+		<CopyText><![CDATA[<!-- Intercom Simple Javascript Integration -->]]></CopyText>
+		<ActiveXProgramID></ActiveXProgramID>
+		<DotNetClass><![CDATA[Contensive.Addons.aoIntercom.Views.simpleJavascriptClass]]></DotNetClass>
+		<ArgumentList></ArgumentList>
+		<AsAjax>No</AsAjax>
+		<Filter>No</Filter>
+		<Help></Help>
+		<HelpLink></HelpLink>
+		<Icon Link="" width="0" height="0" sprites="0" />
+		<InIframe>No</InIframe>
+		<BlockEditTools>No</BlockEditTools>
+		<FormXML></FormXML>
+		<IsInline>No</IsInline>
+		<JavascriptOnLoad></JavascriptOnLoad>
+		<JavascriptInHead></JavascriptInHead>
+		<JavascriptBodyEnd></JavascriptBodyEnd>
+		<MetaDescription></MetaDescription>
+		<OtherHeadTags></OtherHeadTags>
+		<Content>No</Content>
+		<Template>No</Template>
+		<Email>No</Email>
+		<Admin>No</Admin>
+		<OnPageEndEvent>No</OnPageEndEvent>
+		<OnPageStartEvent>No</OnPageStartEvent>
+		<OnBodyStart>No</OnBodyStart>
+		<OnBodyEnd>Yes</OnBodyEnd>
+		<RemoteMethod>No</RemoteMethod>
+		<ProcessInterval>0</ProcessInterval>
+		<PageTitle></PageTitle>
+		<RemoteAssetLink></RemoteAssetLink>
+		<Styles></Styles>
+		<StylesLinkHref></StylesLinkHref>
+		<Styles></Styles>
+		<Scripting Language="" EntryPoint="" Timeout="5000"/>
+	</Addon>
+	<Addon name="intercom Settings" guid="{a497a9e1-afe2-4c17-b507-cdd4b9985fb4}" type="Setting">
+		<Copy></Copy>
+		<CopyText></CopyText>
+		<ActiveXProgramID></ActiveXProgramID>
+		<DotNetClass></DotNetClass>
+		<ArgumentList></ArgumentList>
+		<AsAjax>No</AsAjax>
+		<Filter>No</Filter>
+		<Help></Help>
+		<HelpLink></HelpLink>
+		<Icon Link="" width="0" height="0" sprites="0" />
+		<InIframe>No</InIframe>
+		<BlockEditTools>No</BlockEditTools>
+		<FormXML><![CDATA[<Form>
+	<Description>Settings for Intercom.com Integration</Description>
+	<Tab name="Admin" heading="Administration Site Settings" description="">
+		<SiteProperty caption="APPId" name="Intercom AppId" ReadOnly="0" Type="Text" Selector="" Description="Currently, the best way to find your AppId is to log on to Intercom, go to settings, app settings and read it from the URL right after the 'apps' segment (https://app.intercom.io/a/apps/HERE)"></SiteProperty>
+		<SiteProperty caption="Identity Verification Secret" name="Intercom Identity Verification Secret" ReadOnly="0" Type="Text" Selector="" Description="To find your Identity Verification Secret, log on to Intercom, settings, app settings, click on Identity Verification and click into the secret text box."></SiteProperty>
+	</Tab>
+</Form>
+]]></FormXML>
+		<IsInline>No</IsInline>
+		<JavascriptOnLoad></JavascriptOnLoad>
+		<JavascriptInHead></JavascriptInHead>
+		<JavascriptBodyEnd><![CDATA[var APP_ID = "hajvz7zq";
+//var current_user_email = "jay@contensive.com";var current_user_name = "Jay Kidwell";var current_user_id = "{675f6d66-0506-41b6-bc12-04b6a2323caf}";
+
+window.intercomSettings = {
+    app_id: APP_ID,
+    name: current_user_name, // Full name
+    email: current_user_email, // Email address
+    user_id: current_user_id // current_user_id
+  };
+(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function")
+{ic('reattach_activator');ic('update',intercomSettings);}else
+{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args)
+{i.q.push(args)};w.Intercom=i;function l()
+{var s=d.createElement('script');s.type='text/javascript';s.async=true;
+s.src='https://widget.intercom.io/widget/' + APP_ID;
+var x=d.getElementsByTagName('script')[0];
+x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}
+else{w.addEventListener('load',l,false);}}})()]]></JavascriptBodyEnd>
+		<MetaDescription></MetaDescription>
+		<OtherHeadTags></OtherHeadTags>
+		<Content>No</Content>
+		<Template>No</Template>
+		<Email>No</Email>
+		<Admin>No</Admin>
+		<OnPageEndEvent>No</OnPageEndEvent>
+		<OnPageStartEvent>No</OnPageStartEvent>
+		<OnBodyStart>No</OnBodyStart>
+		<OnBodyEnd>No</OnBodyEnd>
+		<RemoteMethod>No</RemoteMethod>
+		<ProcessInterval>0</ProcessInterval>
+		<PageTitle></PageTitle>
+		<RemoteAssetLink></RemoteAssetLink>
+		<Styles></Styles>
+		<StylesLinkHref></StylesLinkHref>
+		<Styles></Styles>
+		<Scripting Language="" EntryPoint="" Timeout="5000"/>
+	</Addon>
+</Collection>

@@ -10,7 +10,7 @@ using System.Text;
 using System.Reflection;
 using Contensive.BaseClasses;
 
-namespace aoIntercomm.Models {
+namespace Contensive.Addons.aoIntercom.Models {
     public abstract class baseModel {
         //
         //====================================================================================================

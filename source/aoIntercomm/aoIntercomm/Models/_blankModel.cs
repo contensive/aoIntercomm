@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Text;
 using Contensive.BaseClasses;
 
-namespace aoIntercomm.Models {
+namespace Contensive.Addons.aoIntercom.Models {
     public class _blankModel : baseModel {
         //
         //====================================================================================================

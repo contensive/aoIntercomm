@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Contensive.BaseClasses;
-using aoIntercomm.Models;
-using aoIntercomm.Views;
-using aoIntercomm.Controllers;
+using Contensive.Addons.aoIntercom.Models;
+using Contensive.Addons.aoIntercom.Views;
+using Contensive.Addons.aoIntercom.Controllers;
 
-namespace aoIntercomm.Controllers {
+namespace Contensive.Addons.aoIntercom.Controllers {
     public static class genericController {
         //
         //====================================================================================================

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace aoIntercomm {
+namespace aoIntercom {
     static class constants {
         //
         // -- sample
@@ -11,5 +11,8 @@ namespace aoIntercomm {
         //
         // -- sample
         public const string rnInputValue = "inputValue";
+        //
+        // -- Contensive SecretKey
+        public const string secretKey = "LC4UyNZVv876hCyysgMDE28yW3AQu2e_yEK-XsHh";
     }
 }
