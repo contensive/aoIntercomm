@@ -19,7 +19,7 @@ namespace Contensive.Addons.aoIntercom.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,12 +61,13 @@ namespace Contensive.Addons.aoIntercom.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to window.intercomSettings = {
+        ///   Looks up a localized string similar to &lt;SCRIPT type=text/javascript&gt;
+        ///window.intercomSettings = {
         ///    app_id: &quot;{0}&quot;,
         ///    email: &quot;{1}&quot;, // Email address
         ///    user_hash: &quot;{2}&quot; // HMAC using SHA-256
         ///};
-        ///(function(){var w=window;var ic=w.Intercom;if(typeof ic===&quot;function&quot;){ic(&apos;reattach_activator&apos;);ic(&apos;update&apos;,intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement(&apos;script&apos;);s.type=&apos;text/javascript&apos;;s.async=true;s.src=&apos;https://widget.intercom.io/widget/hajvz7zq&apos;;var x=d.get [rest of string was truncated]&quot;;.
+        ///(function(){var w=window;var ic=w.Intercom;if(typeof ic===&quot;function&quot;){ic(&apos;reattach_activator&apos;);ic(&apos;update&apos;,intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement(&apos;script&apos;);s.type=&apos;text/javascript&apos;;s.async=true;s.src=&apos;https://widget.intercom. [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string IntercommAuthScript {
             get {
@@ -75,8 +76,9 @@ namespace Contensive.Addons.aoIntercom.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to window.intercomSettings = {app_id: {0}};
-        ///(function(){var w=window;var ic=w.Intercom;if(typeof ic===&quot;function&quot;){ic(&apos;reattach_activator&apos;);ic(&apos;update&apos;,intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement(&apos;script&apos;);s.type=&apos;text/javascript&apos;;s.async=true;s.src=&apos;https://widget.intercom.io/widget/&apos; + APP_ID;var x=d.getElementsByTagName(&apos;script&apos;)[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachE [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;SCRIPT type=text/javascript&gt;
+        ///window.intercomSettings = {app_id: &quot;{0}&quot;};
+        ///(function(){var w=window;var ic=w.Intercom;if(typeof ic===&quot;function&quot;){ic(&apos;reattach_activator&apos;);ic(&apos;update&apos;,intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement(&apos;script&apos;);s.type=&apos;text/javascript&apos;;s.async=true;s.src=&apos;https://widget.intercom.io/widget/{0}&apos;;var x=d.getElementsByTagName(&apos;script&apos;)[0];x.parentNode.insertBefore(s,x);} [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string IntercommNonAuthScript {
             get {
