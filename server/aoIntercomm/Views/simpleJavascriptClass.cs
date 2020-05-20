@@ -1,14 +1,9 @@
 
 using System;
-using System.IO;
-using System.Reflection;
-using System.Security.Cryptography;
-using System.Collections.Generic;
-using System.Text;
-using Contensive.BaseClasses;
+using System.Runtime.InteropServices;
 using Contensive.Addons.aoIntercom.Controllers;
-using static Contensive.Addons.aoIntercom.Controllers.intercomController;
 using Contensive.Addons.aoIntercom.Properties;
+using Contensive.BaseClasses;
 
 namespace Contensive.Addons.aoIntercom.Views {
     //
@@ -30,21 +25,35 @@ namespace Contensive.Addons.aoIntercom.Views {
         public override object Execute(Contensive.BaseClasses.CPBaseClass cp) {
             string result = "";
             try {
-                string intercomAppId = cp.Site.GetText("Intercom AppId");
+                string appId = cp.Site.GetText("Intercom AppId");
+                if (string.IsNullOrWhiteSpace(appId)) { return "<!-- Intercom disabled because AppId not set in Intercom Settings -->"; }
+                //
                 if (!cp.User.IsAuthenticated) {
                     //
                     // -- not authenticated
-                    result = Resources.IntercommNonAuthScript.Replace("{0}", intercomAppId);
+                    result = Resources.IntercommNonAuthScript.Replace("{0}", appId);
                 } else {
                     //
                     // -- authenticated
+                    string dateAddedUnix = "";
+                    using (CPCSBaseClass cs = cp.CSNew()) {
+                        DateTime dateAdded = DateTime.Now;
+                        if (cs.OpenSQL("select dateAdded from ccmembers where id=" + cp.User.Id )) { dateAdded = cs.GetDate("dateAdded"); }
+                        long unixTime = ((DateTimeOffset)(dateAdded.ToUniversalTime())).ToUnixTimeSeconds();
+                        dateAddedUnix = unixTime.ToString();
+                    }
                     string intercomSecret = cp.Site.GetText("Intercom Identity Verification Secret");
-                    string userHash = intercomController.CreateToken(cp.User.Email.ToString(), intercomSecret);
-                    string source = Properties.Resources.IntercommAuthScript;
-                    result = source.Replace("{0}", intercomAppId ).Replace( "{1}", cp.User.Email ).Replace( "{2}", userHash);
+                    string userHash = intercomController.CreateToken(cp.User.Id.ToString(), intercomSecret);
+                    result = Resources.IntercommAuthScript
+                        .Replace("{0}", appId)
+                        .Replace("{1}", cp.Utils.EncodeJavascript(cp.User.Email))
+                        .Replace("{2}", userHash)
+                        .Replace("{3}", cp.Utils.EncodeJavascript(cp.User.Name))
+                        .Replace("{4}", cp.User.Id.ToString())
+                        .Replace("{5}", dateAddedUnix);
                 }
             } catch (Exception ex) {
-                cp.Site.ErrorReport(ex );
+                cp.Site.ErrorReport(ex);
             }
             return result;
         }
